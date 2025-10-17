@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>OrbitalEducation — Portal</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="brand" onclick="goHome()">
+      <div class="logo">OE</div>
+      <div class="title">
+        <div class="name">OrbitalEducation</div>
+        <div class="subtitle">Basics · Pro</div>
+      </div>
+    </div>
+
+    <nav>
+      <button class="nav-btn" id="dashboardBtn">Dashboard</button>
+      <button class="nav-btn" id="plansBtn">Plans</button>
+      <button class="nav-btn primary" id="openPortalBtn">Open Portal</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="col hero">
+      <div class="hero-top">
+        <div>
+          <h1 id="hubTitle">OrbitalEducation Hub</h1>
+          <div class="muted">Static demo that can use a backend API or local fallback.</div>
+        </div>
+        <div class="status">
+          <div class="tiny muted">Demo Mode</div>
+        </div>
+      </div>
+
+      <div class="plans-row">
+        <article class="plan-card">
+          <h2>Basics — Free</h2>
+          <p class="muted">Essential tools for schools & districts.</p>
+          <ul>
+            <li>Grading, Attendance, Classrooms</li>
+            <li>Up to 2 domains</li>
+            <li>Up to 10,000 accounts</li>
+            <li>Basic Announcements (5,000 chars, 1/day)</li>
+            <li>Up to 5 Admins</li>
+          </ul>
+        </article>
+
+        <article class="plan-card">
+          <h2>Pro — Licensed</h2>
+          <p class="muted">All Basics + advanced org features.</p>
+          <ul>
+            <li>Organization Grant (Hub renamed)</li>
+            <li>Advanced Classrooms & Timed Assignments</li>
+            <li>Unlimited accounts, changeable District Code</li>
+            <li>Help Desk, Groups, Passes, Resources, Extensions</li>
+            <li>App licensing and advanced announcements</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="dashboard-grid" id="dashboardArea">
+        <div class="stat">
+          <div class="label">District / Org</div>
+          <div id="orgName" class="value">—</div>
+          <div class="tiny muted">Plan: <span id="orgPlan">—</span></div>
+        </div>
+
+        <div class="stat">
+          <div class="label">Accounts</div>
+          <div id="accountCount" class="value">0</div>
+          <div class="tiny muted">Admins: <span id="adminCount">0</span></div>
+        </div>
+
+        <div class="stat">
+          <div class="label">Domains</div>
+          <div id="domains" class="value">—</div>
+          <div class="tiny muted">Limit: <span id="domainLimit">—</span></div>
+        </div>
+
+        <div class="stat">
+          <div class="label">Announcements</div>
+          <div id="announceLimit" class="value">—</div>
+          <div class="tiny muted">Daily</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="nav-btn" id="openDashboardBtn">Open Dashboard</button>
+        <button class="nav-btn" id="addAccountBtn" style="display:none">Add Account</button>
+        <button class="nav-btn" id="helpdeskBtn" style="display:none">Help Desk</button>
+        <button class="nav-btn" id="resetDemoBtn">Reset Demo</button>
+      </div>
+    </section>
+
+    <aside class="col sidebar">
+      <div>
+        <h3>Quick Info</h3>
+        <p class="muted">This project can run with localStorage fallback if the API is not available. Use it to prototype flows before connecting a backend. The optional backend included stores data in a local JSON file.</p>
+      </div>
+
+      <div>
+        <h3>Sign-up Flow</h3>
+        <ol class="muted">
+          <li>Dashboard → "Login or Sign up?"</li>
+          <li>Signup: choose Parent or District/School</li>
+          <li>Parent: Email, Password, Child Email/PIN, District Code</li>
+          <li>District: Name, Work Email, Password, District/School Name, TOS, Plan</li>
+        </ol>
+      </div>
+
+      <div>
+        <h3>Example Accounts</h3>
+        <pre id="exampleAccounts" class="muted">No accounts yet.</pre>
+      </div>
+    </aside>
+  </main>
+
+  <footer>
+    <div class="updates">
+      <h4>Updates</h4>
+      <div id="updatesList">
+        <div class="update"><strong>[2025-10-17]</strong> Demo delivered — split files and optional backend included.</div>
+        <div class="update"><strong>[2025-09-01]</strong> Pro features modeled in UI; Help Desk added.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div id="modalBackdrop" class="modal-backdrop hidden" onclick="modalBackdropClick(event)">
+    <div class="modal" onclick="event.stopPropagation()" id="modalContent"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
